@@ -18,17 +18,17 @@ services:
 
    # # Define a service for using the influx CLI tool.
    # #docker-compose -p smartplug run influxdb-cli
-  # influxdb-cli:
-   #  image: influxdb:latest
-  #   container_name: influxdb-cli
-  #   entrypoint:
-   #    - influx
-   #    - -host
-   #    - influxdb
-   #  depends_on:
-  #     - influxdb
-  #   networks:
-   #    - tig-network
+  influxdb-cli:
+    image: influxdb:latest
+    container_name: influxdb-cli
+   entrypoint:
+      - influx
+      - -host
+      - influxdb
+    depends_on:
+      - influxdb
+    networks:
+      - tig-network
 
   # chronograf:
   #   image: chronograf:latest
@@ -71,7 +71,7 @@ services:
       - "./grafana/env/env.grafana"
     volumes:
       - "./data/grafana:/var/lib/grafana"
-    user: "graf_user"
+    user: "$USER_ID"
     depends_on:
       - influxdb
     networks:
