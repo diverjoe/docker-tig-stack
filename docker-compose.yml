@@ -43,7 +43,7 @@ services:
   telegraf:
     image: telegraf:latest
     container_name: telegraf
-    hostname: TIG
+    hostname: $HOST_NAME
     restart: on-failure
     environment:
       HOST_PROC: "/rootfs/proc"
