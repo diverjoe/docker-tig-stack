@@ -21,7 +21,7 @@ services:
   influxdb-cli:
     image: influxdb:latest
     container_name: influxdb-cli
-   entrypoint:
+    entrypoint:
       - influx
       - -host
       - influxdb
