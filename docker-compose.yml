@@ -43,7 +43,7 @@ services:
   telegraf:
     image: telegraf:latest
     container_name: telegraf
-    hostname: $HOST_NAME
+    hostname: TIG
     restart: on-failure
     environment:
       HOST_PROC: "/rootfs/proc"
@@ -71,7 +71,7 @@ services:
       - "./grafana/env/env.grafana"
     volumes:
       - "./data/grafana:/var/lib/grafana"
-    user: "$USER_ID"
+    user: "graf_user"
     depends_on:
       - influxdb
     networks:
